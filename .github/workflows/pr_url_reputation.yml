@@ -14,7 +14,7 @@ jobs:
         id: get
         run: |
           gh pr diff $PR
-          URLS=$(gh pr diff $PR | grep -E -o "(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])" | sort -u ) 
+          URLS=$(gh pr diff $PR | grep -Po "(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])" | sort -u) 
           for URL in $URLS; do
            CSV_LIST="$CSV_LIST, \"$URL\""
           done

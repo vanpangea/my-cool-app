@@ -43,8 +43,7 @@ jobs:
       - name: Log to Pangea
         uses: pangeacyber/pangea-github-action-api@1.0.0
         with:
-          endpoint: "audit.log"
-          payload: "{\"message\": Data for ${{matrix.urls}}: Results - ${{toJSON(fromJSON(steps.reputation.outputs.results).data)}} --- Params - ${{toJSON(fromJSON(steps.reputation.outputs.results).parameters)}}}"
+          text: "Data for ${{matrix.urls}}: Results - ${{toJSON(fromJSON(steps.reputation.outputs.results).data)}} --- Params - ${{toJSON(fromJSON(steps.reputation.outputs.results).parameters)}}"
           token: ${{secrets.PANGEA_TOKEN}}
           domain: ${{secrets.PANGEA_DOMAIN}}
       - uses: actions/checkout@v4
